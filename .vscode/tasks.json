@@ -1,0 +1,38 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558 
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "npm",
+            "script": "build",
+            "group": "build",
+            "problemMatcher": [],
+            "label": "build",
+            "isBackground": false
+        },
+        {
+            "type": "shell",
+            "command": "cd react-src && npm start",
+            "label": "debug server",
+            "isBackground": true
+        },
+        {
+            "type": "shell",
+            "command": "neu run --frontend-lib-dev -- --window-enable-inpector",
+            "label": "debug window",
+            "isBackground": true
+        },
+        {
+            "type": "shell",
+            "command": "",
+            "label": "debug",
+            "dependsOn": [
+                "debug window",
+                "debug server"
+            ],
+            "dependsOrder": "parallel",
+            "problemMatcher": []
+        }
+    ]
+}

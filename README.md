@@ -1,46 +1,87 @@
-# Getting Started with Create React App
+# Pokemon Browser
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a project that I've been working on to get more comfotable with React and Typescript in
+general.
 
-## Available Scripts
+I'm not sure if I'll be maintaining this or if I'll just leave it be. It's sort of rough
+right now, but I'm happy with it. This is also my first true completed program.
 
-In the project directory, you can run:
+## What this is made with
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This program is a React website running on Neutralino to make it a portable executable.
+I decided to go with React because it's pretty popular so it has a lot of resources for learning it.
+Neutralino though, was because I wanted to make something in the style of an Electron app, but without the
+heavy nature of Electron... Using React kind of defeats the point of that though.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+PokeApi is at the core of this app as all of the pokemon data is fetched from that database through
+pokenode-ts.
 
-### `npm test`
+## Build Instructions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### *These instructions assume you have npm installed
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To get started, clone this repo into a directory of your choice.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Either install Neutralino globally, or use npx in place of `neu` in these instructions.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```sh
+# use this to install neu globally:
+npm install -g @neutralino/neu
 
-### `npm run eject`
+# or use this in place of neu in scripts:
+npx @neutralino/neu
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Navigate to the root folder of the code and run the following command to install Neutralino's client and binaries.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```sh
+neu update
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Navigate into the `react-src/` folder and install npm dependancies. This might take a minute.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```sh
+cd react-src
+npm install
+```
 
-## Learn More
+After the node moudules have been installed, build the React website by running the build script.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```sh
+npm run build
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Navigate back to the root directory and build the final program. The built programs will be output to `dist/`.
+
+```sh
+cd ..
+neu build --release
+```
+
+## Development
+
+---
+
+Start by following the build instructions, at least to installing the npm packages.
+
+You can run a hot-reload development session by running the vscode task named `debug`. The settings for the task is located in `.vscode/tasks.json`.
+
+If you want to see the web inspector, set this in `neutralino.config.json`
+
+```json
+{
+  ...
+  "modes": {
+    "window": {
+      ...
+      "enableInsector": true,
+      ...
+    }
+  },
+  ...
+}
+```
