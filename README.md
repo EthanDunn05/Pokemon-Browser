@@ -8,8 +8,6 @@ right now, but I'm happy with it. This is also my first true completed program.
 
 ## What this is made with
 
----
-
 This program is a React website running on Neutralino to make it a portable executable.
 I decided to go with React because it's pretty popular so it has a lot of resources for learning it.
 Neutralino though, was because I wanted to make something in the style of an Electron app, but without the
@@ -21,8 +19,6 @@ pokenode-ts.
 ## Build Instructions
 
 ### *These instructions assume you have npm installed
-
----
 
 To get started, clone this repo into a directory of your choice.
 
@@ -64,8 +60,6 @@ neu build --release
 
 ## Development
 
----
-
 Start by following the build instructions, at least to installing the npm packages.
 
 You can run a hot-reload development session by running the vscode task named `debug`. The settings for the task is located in `.vscode/tasks.json`.
@@ -74,14 +68,10 @@ If you want to see the web inspector, set this in `neutralino.config.json`
 
 ```json
 {
-  ...
   "modes": {
     "window": {
-      ...
       "enableInsector": true,
-      ...
     }
   },
-  ...
 }
 ```
