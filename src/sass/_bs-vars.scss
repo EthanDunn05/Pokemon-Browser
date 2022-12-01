@@ -1,0 +1,27 @@
+// This file is for overriding the theme for bootsrtap //
+
+@import '~bootstrap/scss/functions';
+
+// Pre-Bootstrap //
+
+$primary: rgb(158, 70, 158);
+$neutral: rgb(45, 44, 44);
+
+$body-bg: $neutral;
+$body-color: white;
+
+// Override dropdown
+$dropdown-bg: $body-bg;
+$dropdown-color: $body-color;
+
+// Import bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Post-Bootstrap //
+
+$theme-colors: map-merge(
+  $theme-colors,
+  (
+    neutral: $neutral,
+  )
+);

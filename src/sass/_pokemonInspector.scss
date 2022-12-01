@@ -1,0 +1,118 @@
+@import './bs-vars';
+
+.inspector-panel {
+  border-style: solid;
+  border-width: map-get($border-widths, 2);
+  border-color: $white;
+  border-radius: $border-radius;
+
+  padding: map-get($spacers, 2);
+}
+
+// Using a placeholder so that I can couple the
+// other classes with bg-color indicators
+%bg-indicator {
+  padding-left: map-get($spacers, 2);
+  padding-right: map-get($spacers, 2);
+  margin-top: auto;
+  margin-bottom: auto;
+
+  text-align: center;
+
+  border-radius: $border-radius;
+}
+
+/* Stats */
+$stat-colors: (
+  hp: $red,
+  attack: $orange,
+  defense: $blue,
+  special-attack: $yellow,
+  special-defense: $teal,
+  speed: $pink-400,
+);
+
+[data-inspector-stat] {
+  // Basic spacing and sizing
+  height: 100%;
+  padding-top: map-get($spacers, 1);
+  padding-bottom: map-get($spacers, 1);
+
+  // Round the ends
+  border-top-right-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
+
+  background-color: $white;
+}
+
+@each $name, $color in $stat-colors {
+  [data-inspector-stat='#{$name}'] {
+    background-color: $color;
+  }
+}
+
+/* Header */
+$type-colors: (
+  normal: rgb(240, 240, 240),
+  fighting: rgb(121, 15, 15),
+  flying: rgb(159, 217, 240),
+  poison: rgb(60, 9, 73),
+  ground: rgb(220, 157, 112),
+  rock: rgb(139, 88, 46),
+  bug: rgb(88, 207, 124),
+  ghost: rgb(80, 43, 107),
+  steel: rgb(146, 161, 164),
+  fire: rgb(209, 36, 36),
+  water: rgb(66, 66, 207),
+  grass: rgb(73, 217, 73),
+  electric: rgb(237, 237, 47),
+  psychic: rgb(219, 74, 214),
+  ice: rgb(160, 225, 246),
+  dragon: rgb(39, 19, 98),
+  dark: rgb(26, 25, 25),
+  fairy: rgb(247, 174, 186),
+  unknown: rgb(18, 96, 96),
+  shadow: rgb(34, 3, 34),
+);
+
+[data-inspector-type] {
+  @extend %bg-indicator;
+}
+
+@each $name, $color in $type-colors {
+  [data-inspector-type='#{$name}'] {
+    background-color: $color;
+
+    // Gotta do this every time because sass won't let me
+    // use properties in the extended placeholder 
+    color: color-contrast(
+      $color,
+      $color-contrast-dark,
+      $color-contrast-light,
+      $min-contrast-ratio
+    );
+  }
+}
+
+/* Moves */
+$move-class-color: (
+  physical: rgb(249, 138, 138),
+  special: rgb(139, 206, 236),
+  status: rgb(142, 240, 157)
+);
+
+[data-move-class] {
+  @extend %bg-indicator;
+}
+
+@each $name, $color in $move-class-color {
+  [data-move-class=#{$name}] {
+    background-color: $color;
+    color: color-contrast(
+      $color,
+      $color-contrast-dark,
+      $color-contrast-light,
+      $min-contrast-ratio
+    );
+  }
+}

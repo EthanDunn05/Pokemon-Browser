@@ -1,0 +1,45 @@
+@import './bs-vars';
+
+@import './pokemonInspector';
+
+.dropdown-item {
+  color: $body-color;
+}
+
+.list-group-item {
+  background-color: $primary;
+  color: $body-color;
+}
+
+.dropdown-menu {
+  border-width: map-get($border-widths, 2);
+  border-color: $body-color;
+  box-shadow: 0px 3px 9px $black;
+}
+
+.navbar {
+  margin-bottom: map-get($spacers, 3);
+}
+
+.btn-close {
+  color: $body-color;
+}
+
+.modal-backdrop { 
+  background-color: rgba($body-bg, 0.25);
+}
+
+.modal-content {
+  background-color: $body-bg;
+  border-color: $body-color;
+  border-width: map-get($border-widths, 2);
+}
+
+// container-half class (Might delete cause it looks kinda bad)
+@each $breakpoint, $max-width in $container-max-widths {
+  @include media-breakpoint-up($breakpoint) {
+    .container-half {
+      max-width: $max-width * 1.25;
+    }
+  }
+}
