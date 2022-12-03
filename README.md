@@ -26,10 +26,10 @@ Either install Neutralino globally, or use npx in place of `neu` in these instru
 
 ```sh
 # use this to install neu globally:
-npm install -g @neutralino/neu
+npm install -g @neutralinojs/neu
 
 # or use this in place of neu in scripts:
-npx @neutralino/neu
+npx @neutralinojs/neu
 ```
 
 Navigate to the root folder of the code and run the following command to install Neutralino's client and binaries.
