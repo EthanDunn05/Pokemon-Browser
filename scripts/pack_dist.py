@@ -2,17 +2,21 @@ from zipfile import ZipFile
 from glob import glob
 import os
 
-dist_dir = './dist/pokemon-browser/'
-out_dir = dist_dir + 'zips/'
+distDir = './dist/pokemon-browser/'
+outDir = distDir + 'zips/'
 
-os.mkdir(out_dir)
+os.mkdir(outDir)
 
-files = glob(dist_dir + 'pokemon-browser-*')
+files = glob(distDir + 'pokemon-browser-*')
 
 for file in files:
-  zipFile = ZipFile(out_dir + file.split('\\')[-1].split('.')[0] + '.zip', 'w')
+  fileName = file.split('\\')[-1]
+  zipFile = ZipFile(outDir + fileName.split('.')[0] + '.zip', 'w')
   
-  zipFile.write(file)
-  zipFile.write(dist_dir + 'resources.neu')
+  zipFile.write(file, fileName)
+  zipFile.write(distDir + 'resources.neu', 'resources.neu')
+  
+  if(fileName.endswith('.exe')):
+    zipFile.write(distDir + 'WebView2Loader.dll', 'WebView2Loader.dll')
   
   zipFile.close()
