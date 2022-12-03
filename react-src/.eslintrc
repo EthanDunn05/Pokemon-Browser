@@ -51,6 +51,12 @@
     "react/jsx-key": "off",
     "@typescript-eslint/no-unused-imports": "off",
     "unused-imports/no-unused-imports": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
     "unused-imports/no-unused-vars": [
       "warn",
       {

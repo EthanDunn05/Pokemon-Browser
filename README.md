@@ -18,7 +18,7 @@ pokenode-ts.
 
 ## Build Instructions
 
-### *These instructions assume you have npm installed
+### *These instructions assume you have npm and python installed
 
 To get started, clone this repo into a directory of your choice.
 
@@ -51,11 +51,17 @@ After the node moudules have been installed, build the React website by running 
 npm run build
 ```
 
-Navigate back to the root directory and build the final program. The built programs will be output to `dist/`.
+Navigate back to the root directory and build the final program files. The built programs will be output to `dist/`.
 
 ```sh
 cd ..
 neu build --release
+```
+
+Finally, pack the releases into zip files with their resource file. The output zips will be found in `dist/zips`.
+
+```sh
+python ./scripts/pack_dist.py
 ```
 
 ## Development
